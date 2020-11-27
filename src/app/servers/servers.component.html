@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-   
-</head>
-<body>
+  </head>
+  <body>
     <p>servers works!</p>
     <p>Data binding</p>
-    <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+    <p>Now It is time for two-way data binding using ngModel</p>
+    <input type="text" class="form-control" [(ngModel)]="serverName" />
+    <label>Click the button to create server</label><br />
+    <button
+      class="btn btn-primary"
+      [disabled]="!allowNewServer"
+      (click)="onServerCreation()"
+    >
+      Add Server
+    </button>
+    <p>{{ serverCreationStatus }}</p>
     <p>String Interpolation</p>
     <p>{{ allowNewServer }}</p>
-</body>
+    <p [innerText]="allowNewServer"></p>
+    <label>Server Name</label><br />
+    <!-- <input
+      type="text"
+      class="form-control"
+      (input)="onUpdateServerName($event)"
+    /> -->
+    <!-- <label>{{ serverName }}</label> -->
+
+    <!-- <p>{{ serverName }}</p> -->
+    
+  </body>
 </html>
